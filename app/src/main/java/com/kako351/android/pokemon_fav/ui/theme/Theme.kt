@@ -5,7 +5,6 @@ import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
-import androidx.compose.material.ButtonColors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.Surface
@@ -56,13 +55,13 @@ fun PokemonfavTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Compos
 
 @Preview(uiMode = UI_MODE_NIGHT_NO)
 @Composable
-fun LightTheme(){
+fun LightTheme() {
     PreviewSample()
 }
 
 @Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
-fun DarkTheme(){
+fun DarkTheme() {
     PreviewSample()
 }
 
