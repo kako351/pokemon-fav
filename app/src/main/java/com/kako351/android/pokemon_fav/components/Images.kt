@@ -55,3 +55,21 @@ fun PreviewCircleImageL() {
 fun PreviewCircleImageXL() {
     CircleImage(painterResource(R.drawable.pikachu), "pikachu", size = 256.dp)
 }
+
+@Composable
+fun SquareImage(painter: Painter, contentDescription: String, modifier: Modifier = Modifier, size: Dp = 64.dp) {
+    Image(
+        painter = painter,
+        contentDescription = contentDescription,
+        contentScale = ContentScale.Fit,
+        modifier = modifier
+            .size(size)
+            .background(color = MewWhite)
+    )
+}
+
+@Preview
+@Composable
+fun PreviewSquareImage() {
+    SquareImage(painterResource(R.drawable.pikachu), "pikachu")
+}
