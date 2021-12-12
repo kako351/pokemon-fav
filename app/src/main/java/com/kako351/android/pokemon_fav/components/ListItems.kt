@@ -2,6 +2,7 @@ package com.kako351.android.pokemon_fav.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,9 +26,10 @@ import com.kako351.android.pokemon_fav.model.Pokemon
 import com.kako351.android.pokemon_fav.ui.theme.PokemonfavTheme
 
 @Composable
-fun LowInfoCell(modifier: Modifier = Modifier, pokemon: Pokemon) {
+fun LowInfoCell(modifier: Modifier = Modifier, pokemon: Pokemon, onClick: (pokemon: Pokemon) -> Unit) {
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .clickable(enabled = true, onClick = { onClick(pokemon) }),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -52,7 +54,9 @@ fun PreviewLightLowInfoCell() {
                     id = "sample",
                     name = "pikachu",
                     image = "https://img.pokemondb.net/artwork/pikachu.jpg"
-                )
+                ),
+                onClick = {
+                }
             )
         }
     }
@@ -68,16 +72,18 @@ fun PreviewDarkLowInfoCell() {
                     id = "sample",
                     name = "pikachu",
                     image = "https://img.pokemondb.net/artwork/pikachu.jpg"
-                )
+                ),
+                onClick = {
+                }
             )
         }
     }
 }
 
 @Composable
-fun CardColumnCell(modifier: Modifier = Modifier, pokemon: Pokemon) {
+fun CardColumnCell(modifier: Modifier = Modifier, pokemon: Pokemon, onClick: (pokemon: Pokemon) -> Unit) {
     Card(
-        modifier = Modifier.padding(8.dp),
+        modifier = Modifier.padding(8.dp).clickable(enabled = true, onClick = { onClick(pokemon) }),
         elevation = 8.dp
     ) {
         Column(
@@ -110,7 +116,9 @@ fun PreviewLightCardColumnCell() {
                     id = "sample",
                     name = "pikachu",
                     image = "https://img.pokemondb.net/artwork/pikachu.jpg"
-                )
+                ),
+                onClick = {
+                }
             )
         }
     }
@@ -126,7 +134,9 @@ fun PreviewDarkCardColumnCell() {
                     id = "sample",
                     name = "pikachu",
                     image = "https://img.pokemondb.net/artwork/pikachu.jpg"
-                )
+                ),
+                onClick = {
+                }
             )
         }
     }

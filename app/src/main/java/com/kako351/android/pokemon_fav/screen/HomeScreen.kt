@@ -114,7 +114,7 @@ fun RecentPokemon(pokemons: List<Pokemon>) {
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 16.dp)
     ) {
         items(pokemons) { pokemon ->
-            LowInfoCell(pokemon = pokemon)
+            LowInfoCell(pokemon = pokemon, onClick = {})
         }
     }
 }
@@ -191,7 +191,8 @@ fun FavPokemons(pokemons: List<Pokemon>) {
             ) {
                 CardColumnCell(
                     modifier = Modifier.width((halfWidth - 16).dp),
-                    pokemon = rowPokemons.first()
+                    pokemon = rowPokemons.first(),
+                    onClick = {}
                 )
             }
         } else {
@@ -200,11 +201,13 @@ fun FavPokemons(pokemons: List<Pokemon>) {
             ) {
                 CardColumnCell(
                     modifier = Modifier.width((halfWidth - 16).dp),
-                    pokemon = rowPokemons.first()
+                    pokemon = rowPokemons.first(),
+                    onClick = {}
                 )
                 CardColumnCell(
                     modifier = Modifier.width((halfWidth - 16).dp),
-                    pokemon = rowPokemons.last()
+                    pokemon = rowPokemons.last(),
+                    onClick = {}
                 )
             }
         }
