@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.rememberImagePainter
+import com.kako351.android.pokemon_fav.R
 import com.kako351.android.pokemon_fav.model.Pokemon
 import com.kako351.android.pokemon_fav.ui.theme.PokemonfavTheme
 
@@ -22,7 +23,13 @@ fun LowInfoCell(modifier: Modifier = Modifier, pokemon: Pokemon) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        CircleImage(rememberImagePainter(pokemon.image), pokemon.name)
+        CircleImage(
+            rememberImagePainter(data = pokemon.image, builder = {
+                crossfade(true)
+                placeholder(R.drawable.pokemon_placeholder)
+            }),
+            pokemon.name
+        )
         Text(text = pokemon.name, style = MaterialTheme.typography.h6)
     }
 }

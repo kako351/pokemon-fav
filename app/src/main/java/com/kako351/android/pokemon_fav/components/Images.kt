@@ -2,6 +2,8 @@ package com.kako351.android.pokemon_fav.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
@@ -14,6 +16,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.kako351.android.pokemon_fav.R
+import com.kako351.android.pokemon_fav.ui.theme.HoohGold
+import com.kako351.android.pokemon_fav.ui.theme.LugiaSilver
 import com.kako351.android.pokemon_fav.ui.theme.MewWhite
 
 @Composable
@@ -22,7 +26,15 @@ fun CircleImage(painter: Painter, contentDescription: String, modifier: Modifier
         painter = painter,
         contentDescription = contentDescription,
         contentScale = ContentScale.Fit,
-        modifier = modifier.size(size).clip(CircleShape).background(color = MewWhite)
+        modifier = modifier
+            .size(size)
+            .clip(CircleShape)
+            .background(color = MewWhite)
+            .border(
+                1.dp,
+                color = if (isSystemInDarkTheme()) HoohGold else LugiaSilver,
+                shape = CircleShape
+            )
     )
 }
 
