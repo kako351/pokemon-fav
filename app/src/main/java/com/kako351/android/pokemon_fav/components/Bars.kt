@@ -8,12 +8,17 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kako351.android.pokemon_fav.ui.theme.BlackyBlack
@@ -29,22 +34,26 @@ fun SearchBar(
         .clip(RoundedCornerShape(50.dp))
         .background(if (isSystemInDarkTheme()) IwakyBlack else LugiaSilver)
         .padding(horizontal = 16.dp, vertical = 8.dp),
-    query: TextFieldValue,
-    onValueChanges: (TextFieldValue) -> Unit
+    query: String,
+    onValueChanges: (String) -> Unit
 ) {
+    var value by remember { mutableStateOf(query) }
     Surface(
         shape = RoundedCornerShape(50.dp),
         elevation = 0.dp,
         modifier = Modifier.background(if (isSystemInDarkTheme()) BlackyBlack else MewWhite)
     ) {
         BasicTextField(
-            value = query,
-            onValueChange = onValueChanges,
+            value = value,
+            onValueChange = {
+                value = it
+            },
             singleLine = true,
             modifier = modifier,
             textStyle = TextStyle(
                 color = if (isSystemInDarkTheme()) MewWhite else BlackyBlack
-            )
+            ),
+            cursorBrush = SolidColor(MaterialTheme.colors.primary)
         )
     }
 }
@@ -53,7 +62,7 @@ fun SearchBar(
 @Composable
 fun PreviewLightSearchBar() {
     PokemonfavTheme {
-        SearchBar(query = TextFieldValue(text = "Pikachu"), onValueChanges = {
+        SearchBar(query = "Pikachu", onValueChanges = {
         })
     }
 }
@@ -62,7 +71,7 @@ fun PreviewLightSearchBar() {
 @Composable
 fun PreviewDarkSearchBar() {
     PokemonfavTheme {
-        SearchBar(query = TextFieldValue(text = "Pikachu"), onValueChanges = {
+        SearchBar(query = "Pikachu", onValueChanges = {
         })
     }
 }
