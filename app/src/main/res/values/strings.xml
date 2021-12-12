@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">pokemon-fav</string>
     <string name="recent_header">さいきんみたポケモン</string>
+    <string name="fav_header">ふぁぼしたポケモン</string>
 </resources>

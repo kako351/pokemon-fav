@@ -50,6 +50,10 @@ fun HomeContents(recentPokemons: List<Pokemon>) {
                 Text(text = stringResource(id = R.string.recent_header), style = Typography.h1, modifier = Modifier.offset(16.dp))
                 RecentPokemon(recentPokemons)
             }
+            item {
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(text = stringResource(id = R.string.fav_header), style = Typography.h1, modifier = Modifier.offset(16.dp))
+            }
         }
     }
 }
