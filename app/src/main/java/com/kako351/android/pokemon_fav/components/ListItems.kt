@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Card
@@ -75,7 +77,8 @@ fun PreviewDarkLowInfoCell() {
 @Composable
 fun CardColumnCell(modifier: Modifier = Modifier, pokemon: Pokemon) {
     Card(
-        modifier = Modifier.padding(8.dp)
+        modifier = Modifier.padding(8.dp),
+        elevation = 8.dp
     ) {
         Column(
             modifier = modifier,
@@ -88,7 +91,9 @@ fun CardColumnCell(modifier: Modifier = Modifier, pokemon: Pokemon) {
                     placeholder(R.drawable.pokemon_placeholder)
                 }),
                 contentDescription = pokemon.name,
-                size = 128.dp
+                modifier = Modifier
+                    .fillMaxWidth(1f)
+                    .aspectRatio(1f)
             )
             Text(text = pokemon.name, style = MaterialTheme.typography.h5)
         }
@@ -141,7 +146,7 @@ fun ListRecordCell(modifier: Modifier = Modifier, pokemon: Pokemon) {
                 contentDescription = pokemon.name,
                 size = 64.dp
             )
-            Column(modifier = Modifier.padding(horizontal = 8.dp)) {
+            Column(modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)) {
                 Row {
                     pokemon.types?.forEach {
                         Chip(it)
