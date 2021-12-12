@@ -4,6 +4,9 @@ import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
@@ -70,7 +73,7 @@ fun PreviewDarkLowInfoCell() {
 }
 
 @Composable
-fun HighInfoCell(modifier: Modifier = Modifier, pokemon: Pokemon) {
+fun CardColumnCell(modifier: Modifier = Modifier, pokemon: Pokemon) {
     Card(
         modifier = Modifier.padding(8.dp)
     ) {
@@ -94,10 +97,10 @@ fun HighInfoCell(modifier: Modifier = Modifier, pokemon: Pokemon) {
 
 @Preview(uiMode = UI_MODE_NIGHT_NO)
 @Composable
-fun PreviewLightHighInfoCell() {
+fun PreviewLightCardColumnCell() {
     PokemonfavTheme {
         Surface {
-            HighInfoCell(
+            CardColumnCell(
                 pokemon = Pokemon(
                     id = "sample",
                     name = "pikachu",
@@ -110,14 +113,75 @@ fun PreviewLightHighInfoCell() {
 
 @Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
-fun PreviewDarkHighInfoCell() {
+fun PreviewDarkCardColumnCell() {
     PokemonfavTheme {
         Surface {
-            HighInfoCell(
+            CardColumnCell(
                 pokemon = Pokemon(
                     id = "sample",
                     name = "pikachu",
                     image = "https://img.pokemondb.net/artwork/pikachu.jpg"
+                )
+            )
+        }
+    }
+}
+
+@Composable
+fun ListRecordCell(modifier: Modifier = Modifier, pokemon: Pokemon) {
+    Card(
+        modifier = Modifier.padding(8.dp)
+    ) {
+        Row {
+            SquareImage(
+                painter = rememberImagePainter(data = pokemon.image, builder = {
+                    crossfade(true)
+                    placeholder(R.drawable.pokemon_placeholder)
+                }),
+                contentDescription = pokemon.name,
+                size = 64.dp
+            )
+            Column(modifier = Modifier.padding(horizontal = 8.dp)) {
+                Row {
+                    pokemon.types?.forEach {
+                        Chip(it)
+                    }
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(text = pokemon.name, style = MaterialTheme.typography.h5)
+            }
+        }
+    }
+}
+
+@Preview(uiMode = UI_MODE_NIGHT_NO)
+@Composable
+fun PreviewLightListRecordCell() {
+    PokemonfavTheme {
+        Surface {
+            ListRecordCell(
+                pokemon = Pokemon(
+                    id = "sample",
+                    name = "pikachu",
+                    image = "https://img.pokemondb.net/artwork/pikachu.jpg",
+                    types = listOf("Electric")
+                )
+            )
+        }
+    }
+}
+
+@Preview(uiMode = UI_MODE_NIGHT_YES)
+@Composable
+fun PreviewDarkListRecordCell() {
+    PokemonfavTheme {
+        Surface {
+            ListRecordCell(
+                pokemon = Pokemon(
+                    id = "sample",
+                    name = "pikachu",
+                    image = "https://img.pokemondb.net/artwork/pikachu.jpg",
+                    types = listOf("Electric")
                 )
             )
         }
