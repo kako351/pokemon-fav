@@ -1,0 +1,7 @@
+query Pokemon($id: String, $name: String) {
+  pokemon(id: $id) {
+    id
+    number
+    name
+  }
+}

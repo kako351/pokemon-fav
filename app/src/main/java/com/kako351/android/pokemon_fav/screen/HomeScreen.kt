@@ -27,6 +27,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.kako351.android.pokemon_fav.R
 import com.kako351.android.pokemon_fav.components.CardColumnCell
 import com.kako351.android.pokemon_fav.components.LowInfoCell
@@ -39,7 +40,9 @@ import com.kako351.android.pokemon_fav.ui.theme.Typography
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    viewModel: HomeScreenViewModel = viewModel()
+) {
     val pokemon = Pokemon(id = "sample", name = "pikachu", image = "https://img.pokemondb.net/artwork/pikachu.jpg")
     val recentPokemons = listOf(pokemon, pokemon, pokemon, pokemon, pokemon)
     val favPokemons = listOf(pokemon, pokemon, pokemon, pokemon, pokemon, pokemon, pokemon, pokemon, pokemon, pokemon)
