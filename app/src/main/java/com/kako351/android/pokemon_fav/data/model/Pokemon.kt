@@ -1,4 +1,4 @@
-package com.kako351.android.pokemon_fav.model
+package com.kako351.android.pokemon_fav.data.model
 
 import com.squareup.moshi.Json
 

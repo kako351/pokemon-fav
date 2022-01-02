@@ -1,8 +1,8 @@
-package com.kako351.android.pokemon_fav.model
+package com.kako351.android.pokemon_fav.data.model
 
 import com.squareup.moshi.Json
 
-data class Weight(
+data class Height(
     @Json(name = "maximum")
     val maximum: String,
     @Json(name = "minimum")

@@ -22,7 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import com.kako351.android.pokemon_fav.R
-import com.kako351.android.pokemon_fav.model.Pokemon
+import com.kako351.android.pokemon_fav.data.model.Pokemon
 import com.kako351.android.pokemon_fav.ui.theme.PokemonfavTheme
 
 @Composable

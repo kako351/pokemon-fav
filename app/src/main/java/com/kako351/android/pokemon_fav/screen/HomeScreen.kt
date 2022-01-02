@@ -31,7 +31,7 @@ import com.kako351.android.pokemon_fav.R
 import com.kako351.android.pokemon_fav.components.CardColumnCell
 import com.kako351.android.pokemon_fav.components.LowInfoCell
 import com.kako351.android.pokemon_fav.components.SearchBar
-import com.kako351.android.pokemon_fav.model.Pokemon
+import com.kako351.android.pokemon_fav.data.model.Pokemon
 import com.kako351.android.pokemon_fav.ui.theme.BlackyBlack
 import com.kako351.android.pokemon_fav.ui.theme.MewWhite
 import com.kako351.android.pokemon_fav.ui.theme.PokemonfavTheme
